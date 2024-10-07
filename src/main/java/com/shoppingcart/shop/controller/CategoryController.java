@@ -19,7 +19,7 @@ import static org.springframework.http.HttpStatus.*;
 public class CategoryController {
     private final ICategoryService categoryService;
 
-    @GetMapping("/category/all")
+    @GetMapping("/all")
     public ResponseEntity<ApiResponse> getAllCategories() {
         try {
             List<Category> categories = categoryService.getAllCategories();
@@ -29,7 +29,7 @@ public class CategoryController {
         }
     }
 
-    @PostMapping("category/add")
+    @PostMapping("/add")
     public ResponseEntity<ApiResponse> addCategory(@RequestBody Category name) {
         try {
             Category theCategory = categoryService.addCategory(name);
@@ -39,7 +39,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/category/id/{id}/get")
+    @GetMapping("/id/{id}/get")
     public ResponseEntity<ApiResponse> getCategoryById(@PathVariable Long id){
         try {
             Category theCategory = categoryService.getCategoryById(id);
@@ -49,7 +49,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/category/name/{name}/get")
+    @GetMapping("/name/{name}/get")
     public ResponseEntity<ApiResponse> getCategoryByName(@PathVariable String name){
         try {
             Category theCategory = categoryService.getCategoryByName(name);
@@ -60,7 +60,7 @@ public class CategoryController {
     }
 
 
-    @DeleteMapping("/category/{id}/delete")
+    @DeleteMapping("/{id}/delete")
     public ResponseEntity<ApiResponse> deleteCategory(@PathVariable Long id){
         try {
             categoryService.deleteCategoryById(id);
@@ -70,11 +70,11 @@ public class CategoryController {
         }
     }
 
-    @PutMapping("/category/{id}/update")
+    @PutMapping("/{id}/update")
     public ResponseEntity<ApiResponse> updateCategory(@PathVariable Long id, @RequestBody Category category) {
         try {
             Category updatedCategory = categoryService.updateCategory(category, id);
-            return ResponseEntity.ok(new ApiResponse("Update success!", updatedCategory));
+            return ResponseEntity.ok(new ApiResponse("Update success", updatedCategory));
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }
