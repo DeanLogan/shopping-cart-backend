@@ -1,5 +1,6 @@
 package com.shoppingcart.shop.controller;
 
+import com.shoppingcart.shop.dto.ProductDto;
 import com.shoppingcart.shop.exceptions.ResourceNotFoundException;
 import com.shoppingcart.shop.model.Product;
 import com.shoppingcart.shop.request.AddProductRequest;

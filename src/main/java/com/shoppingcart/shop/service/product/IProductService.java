@@ -1,5 +1,6 @@
 package com.shoppingcart.shop.service.product;
 
+import com.shoppingcart.shop.dto.ProductDto;
 import com.shoppingcart.shop.model.Product;
 import com.shoppingcart.shop.request.AddProductRequest;
 import com.shoppingcart.shop.request.ProductUpdateRequest;
