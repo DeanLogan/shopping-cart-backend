@@ -6,8 +6,8 @@ import com.shoppingcart.shop.model.Order;
 import com.shoppingcart.shop.model.OrderItem;
 import com.shoppingcart.shop.model.Product;
 import com.shoppingcart.shop.service.cart.CartService;
-import com.shoppingcart.shop.service.repository.OrderRepository;
-import com.shoppingcart.shop.service.repository.ProductRepository;
+import com.shoppingcart.shop.repository.OrderRepository;
+import com.shoppingcart.shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

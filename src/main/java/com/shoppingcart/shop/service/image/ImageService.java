@@ -5,7 +5,7 @@ import com.shoppingcart.shop.exceptions.ResourceNotFoundException;
 import com.shoppingcart.shop.model.Image;
 import com.shoppingcart.shop.model.Product;
 import com.shoppingcart.shop.service.product.IProductService;
-import com.shoppingcart.shop.service.repository.ImageRepository;
+import com.shoppingcart.shop.repository.ImageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

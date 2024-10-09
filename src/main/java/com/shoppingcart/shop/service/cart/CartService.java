@@ -2,8 +2,8 @@ package com.shoppingcart.shop.service.cart;
 
 import com.shoppingcart.shop.exceptions.ResourceNotFoundException;
 import com.shoppingcart.shop.model.Cart;
-import com.shoppingcart.shop.service.repository.CartItemRepository;
-import com.shoppingcart.shop.service.repository.CartRepository;
+import com.shoppingcart.shop.repository.CartItemRepository;
+import com.shoppingcart.shop.repository.CartRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

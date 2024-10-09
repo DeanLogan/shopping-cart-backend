@@ -9,9 +9,9 @@ import com.shoppingcart.shop.model.Image;
 import com.shoppingcart.shop.model.Product;
 import com.shoppingcart.shop.request.AddProductRequest;
 import com.shoppingcart.shop.request.ProductUpdateRequest;
-import com.shoppingcart.shop.service.repository.CategoryRepository;
-import com.shoppingcart.shop.service.repository.ImageRepository;
-import com.shoppingcart.shop.service.repository.ProductRepository;
+import com.shoppingcart.shop.repository.CategoryRepository;
+import com.shoppingcart.shop.repository.ImageRepository;
+import com.shoppingcart.shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@ package com.shoppingcart.shop.service.category;
 import com.shoppingcart.shop.exceptions.AlreadyExistsException;
 import com.shoppingcart.shop.exceptions.ResourceNotFoundException;
 import com.shoppingcart.shop.model.Category;
-import com.shoppingcart.shop.service.repository.CategoryRepository;
+import com.shoppingcart.shop.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
