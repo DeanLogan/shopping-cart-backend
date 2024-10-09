@@ -11,7 +11,6 @@ import com.shoppingcart.shop.service.cart.CartService;
 import com.shoppingcart.shop.repository.OrderRepository;
 import com.shoppingcart.shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -91,7 +90,8 @@ public class OrderService implements IOrderService {
                 .toList();
     }
 
-    private OrderDto convertToDto(Order order) {
+    @Override
+    public OrderDto convertToDto(Order order) {
         return modelMapper.map(order, OrderDto.class);
     }
 }

@@ -1,5 +1,6 @@
 package com.shoppingcart.shop.service.user;
 
+import com.shoppingcart.shop.dto.UserDto;
 import com.shoppingcart.shop.model.User;
 import com.shoppingcart.shop.request.CreateUserRequest;
 import com.shoppingcart.shop.request.UserUpdateRequest;
