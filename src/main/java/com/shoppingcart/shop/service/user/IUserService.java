@@ -6,7 +6,9 @@ import com.shoppingcart.shop.request.UserUpdateRequest;
 
 public interface IUserService {
     User getUserById(Long userId);
-    User crreateUser(CreateUserRequest request);
+    User createUser(CreateUserRequest request);
     User updateUser(UserUpdateRequest request, Long userId);
     void deleteUser(Long userId);
+
+    UserDto convertUserToDto(User user);
 }
