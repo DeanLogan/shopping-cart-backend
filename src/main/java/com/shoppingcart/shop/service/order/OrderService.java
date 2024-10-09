@@ -1,6 +1,8 @@
 package com.shoppingcart.shop.service.order;
 
+import com.shoppingcart.shop.dto.OrderDto;
 import com.shoppingcart.shop.enums.OrderStatus;
+import com.shoppingcart.shop.exceptions.ResourceNotFoundException;
 import com.shoppingcart.shop.model.Cart;
 import com.shoppingcart.shop.model.Order;
 import com.shoppingcart.shop.model.OrderItem;
@@ -9,6 +11,8 @@ import com.shoppingcart.shop.service.cart.CartService;
 import com.shoppingcart.shop.repository.OrderRepository;
 import com.shoppingcart.shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -22,6 +26,7 @@ public class OrderService implements IOrderService {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
     private final CartService cartService;
+    private final ModelMapper modelMapper;
 
     @Override
     public Order placeOrder(Long userId) {
@@ -70,13 +75,23 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public Order getOrder(Long orderId) {
-        return orderRepository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+    public OrderDto getOrder(Long orderId) {
+        return orderRepository
+                .findById(orderId)
+                .map(this::convertToDto)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found"));
     }
 
     @Override
-    public List<Order> getOrders(Long userId) {
-        return orderRepository.findByUserId(userId);
+    public List<OrderDto> getUserOrders(Long userId) {
+        List<Order> orders = orderRepository.findByUserId(userId);
+        return orders
+                .stream()
+                .map(this::convertToDto)
+                .toList();
+    }
+
+    private OrderDto convertToDto(Order order) {
+        return modelMapper.map(order, OrderDto.class);
     }
 }
