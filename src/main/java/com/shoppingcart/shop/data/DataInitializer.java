@@ -5,12 +5,14 @@ import com.shoppingcart.shop.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
 public class DataInitializer implements ApplicationListener<ApplicationReadyEvent> {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
@@ -27,7 +29,7 @@ public class DataInitializer implements ApplicationListener<ApplicationReadyEven
             user.setFirstName("The User");
             user.setLastName("User"+i);
             user.setEmail(defaultEmail);
-            user.setPassword("123456");
+            user.setPassword(passwordEncoder.encode("123456"));
             userRepository.save(user);
             System.out.println("Default vet user "+i+" created successfully");
         }
